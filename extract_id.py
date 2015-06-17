@@ -4,6 +4,7 @@ import argparse
 		This script is to extarct pattern 
 		"Loading [sc_ow_loading_1234]""
 		from html file
+		Reference: https://mkaz.com/2014/07/26/python-argparse-cookbook/
 '''
 arg_parser = argparse.ArgumentParser(description='Generates Ids from inputfile')
 arg_parser.add_argument('-i','--inputfile', required=True,type=argparse.FileType('r'),help='Input HTML File')
