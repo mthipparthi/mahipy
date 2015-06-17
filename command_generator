@@ -1,0 +1,18 @@
+import argparse
+from lxml import html
+from urllib2 import urlopen
+'''
+   This script parses htmlfile and generates a commnad for regression
+'''
+
+arg_parser = argparse.ArgumentParser(description='Generates the ntt Regression command for all regressions failed  recently.')
+arg_parser.add_argument('-u','--url', action='store',required=True, 
+	help='Url like http://lonlnx39/~gthomass/PRD_2015Q2/ngctprgr.edi.hist.PRD_2015Q2.html')
+args = arg_parser.parse_args()
+
+h=html.parse(urlopen(args.url))
+nttcommond=""
+f=h.xpath('//table')[0]
+for td in f.xpath('tr[@class="scenario"]/td[@class="failedNew" ]/preceding-sibling::td[@class="name"]'):
+	nttcommond += "ntt t " + td.text.strip()[0:-6]+";"
+print nttcommond
