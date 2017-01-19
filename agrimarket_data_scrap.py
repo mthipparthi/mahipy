@@ -1,3 +1,11 @@
+'''
+This script is written to extract information for research purpose to check how the prices for these commodities vary 
+from market to market across districts and to Compare the price variance amongst these commodities over the years
+and also with other factors. 
+
+This is probono work for https://factly.in/
+'''
+
 import  requests
 from lxml import html
 from lxml import etree
